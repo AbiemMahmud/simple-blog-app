@@ -23,11 +23,11 @@
             <!-- This will be populate with posts -->
             @foreach ($posts as $post)
             <div class="p-3 mb-2 border-start border-4 border-primary rounded-2 bg-primary-subtle">
-                <div class="row m-0 justify-content-between">
-                    <p class="m-0 fs-5 fw-semibold">{{ $post->title }} </p>
-                    <small class="d-block">{{ $post->create_at }}</small>
-                </div>
-                <small class="mb-3">{{ $post->users->name }}</small>
+                <p class="m-0 p-0 col-10 fs-5 fw-semibold">{{ $post->title }} </p>
+                <p>
+                    <small class="col-2">Post at {{ $post->created_at->format('d-m-Y H:i:s') }}</small>
+                    <small class="mb-3">by {{ $post->users->name }}</small>
+                </p>
                 <p class="fs-6">{{ $post->contents->content_text }} </p>
             </div>
             @endforeach

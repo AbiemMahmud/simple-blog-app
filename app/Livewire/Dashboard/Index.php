@@ -19,7 +19,7 @@ class Index extends Component
     public function mount()
     {
         $this->user = Auth::user();
-        $this->posts = Post::all();
+        $this->posts = Post::latest()->get();
         $this->post_count = Post::where('user_id', Auth::id())->count();
         $this->comment_count = Comment::where('user_id', Auth::id())->count();
     }
