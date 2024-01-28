@@ -8,6 +8,7 @@ use App\Livewire\Components\SignIn;
 use App\Livewire\Dashboard\Index;
 use App\Livewire\Post\CreatePost;
 use App\Livewire\Post\Index as PostIndex;
+use App\Livewire\Read\ReadPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Index::class)->name('dashboard');
     Route::get('/post', PostIndex::class)->name('post');
     Route::get('/post/create', CreatePost::class)->name('create-post');
+    Route::get('/read', ReadPost::class);
 });

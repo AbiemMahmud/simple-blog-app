@@ -22,14 +22,7 @@
             @if (!$posts->isEmpty())
             <!-- This will be populate with posts -->
             @foreach ($posts as $post)
-            <div class="p-3 mb-2 border-start border-4 border-primary rounded-2 bg-primary-subtle">
-                <p class="m-0 p-0 col-10 fs-5 fw-semibold">{{ $post->title }} </p>
-                <p>
-                    <small class="col-2">Post at {{ $post->created_at->format('d-m-Y H:i:s') }}</small>
-                    <small class="mb-3">by {{ $post->users->name }}</small>
-                </p>
-                <p class="fs-6">{{ $post->contents->content_text }} </p>
-            </div>
+            <livewire:components.post-feed :post="$post" />
             @endforeach
             @else
             <p class="mx-auto mb-0 w-75 text-center">No post to be found <br> Create your own <a href="">here...</a></p>

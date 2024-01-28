@@ -4,10 +4,7 @@
 
     <div class="container main-panel">
         @foreach ($posts as $post)
-        <a href="#" class="d-block p-3 my-2 rounded border-start border-5 border-primary bg-primary-subtle text-decoration-none text-dark">
-            <p class="fw-bold"> {{ $post->title }} </p>
-            <p>{{ $post->contents->content_text }} </p>
-        </a>
+        <livewire:components.post-feed :post="$post" />
         @endforeach
 
         <a href="{{ route('create-post') }}" class="btn btn-warning my-3">
