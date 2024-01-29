@@ -44,5 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Index::class)->name('dashboard');
     Route::get('/post', PostIndex::class)->name('post');
     Route::get('/post/create', CreatePost::class)->name('create-post');
-    Route::get('/read', ReadPost::class);
+    Route::get('/read', ReadPost::class)->name('read');
 });

@@ -4,5 +4,5 @@
         <small class="col-2">Post at {{ $post->created_at->format('d-m-Y H:i:s') }}</small>
         <small class="mb-3">by {{ $post->users->name }}</small>
     </p>
-    <p class="fs-6">{{ substr($post->contents->content_text, 0, 700) }}... <a href="#" class="text-primary">Read more...</a> </p>
+    <p class="fs-6">{{ substr($post->contents->content_text, 0, 700) }}... <a href="{{ route('read', ['user'=>$post->users->name, 'id'=>$post->id]) }}" class="text-primary">Read more...</a> </p>
 </div>
