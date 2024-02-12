@@ -8,6 +8,7 @@ use App\Livewire\Components\SignIn;
 use App\Livewire\Dashboard\Index;
 use App\Livewire\Post\CreatePost;
 use App\Livewire\Post\Index as PostIndex;
+use App\Livewire\Profile\ProfileEdit;
 use App\Livewire\Read\ReadPost;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::get('/login', Login::class)->name('login')->middleware('guest');
 Route::controller(UserController::class)->group(function () {
     Route::post('/sign-in', 'signIn');
     Route::post('/login', 'authLogin');
+    Route::post('/sign-in/profile', [UserController::class, 'update']);
+    Route::post('/set-pp', [UserController::class, 'setPic']);
 });
 
 Route::controller(PostController::class)->group(function () {
@@ -40,9 +43,10 @@ Route::controller(PostController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/sign-in/profile', Profile::class)->name('profile');
+    Route::get('/sign-in/profile', Profile::class)->name('edit-profile');
     Route::get('/dashboard', Index::class)->name('dashboard');
     Route::get('/post', PostIndex::class)->name('post');
     Route::get('/post/create', CreatePost::class)->name('create-post');
     Route::get('/read', ReadPost::class)->name('read');
+    Route::get('/profile/{username}', ProfileEdit::class)->name('profile-edit');
 });

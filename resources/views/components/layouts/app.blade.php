@@ -9,6 +9,16 @@
     <title>{{ $title ?? 'Page Title' }}</title>
 
     <style>
+        .profile {
+            width: 50px;
+            height: 50px;
+        }
+
+        .profile-lg {
+            width: 300px;
+            height: 300px;
+        }
+
         .icon {
             width: 40px;
         }

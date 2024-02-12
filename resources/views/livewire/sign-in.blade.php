@@ -8,6 +8,10 @@
         <label for="pass" class="form-label">Password: </label>
         <input type="password" name="password" id="pass" class="form-control">
     </div>
+    <div class="mb-3">
+        <label for="password_confirmation" class="form-label">Confirm your password: </label>
+        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+    </div>
 
     <div class="row justify-content-evenly">
         <input wire:loading.remove type="submit" value="Next" class="btn btn-success col-3">

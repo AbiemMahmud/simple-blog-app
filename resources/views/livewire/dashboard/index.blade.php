@@ -22,7 +22,7 @@
             @if (!$posts->isEmpty())
             <!-- This will be populate with posts -->
             @foreach ($posts as $post)
-            <livewire:components.post-feed :post="$post" />
+            <livewire:components.post-feed :post="$post" wire:key="{{ $post->title }}" />
             @endforeach
             @else
             <p class="mx-auto mb-0 w-75 text-center">No post to be found <br> Create your own <a href="">here...</a></p>

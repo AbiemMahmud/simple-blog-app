@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -19,14 +20,16 @@ class Index extends Component
     public function mount()
     {
         $this->user = Auth::user();
-        $this->posts = Post::latest()->get();
+        $this->posts = Post::all();
         $this->post_count = Post::where('user_id', Auth::id())->count();
         $this->comment_count = Comment::where('user_id', Auth::id())->count();
+    }
+    public function write()
+    {
     }
 
     public function render()
     {
-        $user = Auth::user();
         return view('livewire.dashboard.index');
     }
 }
